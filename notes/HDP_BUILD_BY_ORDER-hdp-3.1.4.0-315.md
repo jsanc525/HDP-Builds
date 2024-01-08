@@ -27,6 +27,7 @@ last_update: 05-01-24
 
 ### Notes
 - uses pierre builder
+- multipld hdp tags are grouped together for this build of zookeeper. The same version of zookeeper will work with both hadoop builds needed below
 - update build.xml:
    - line 114 old: value="http://repo2.maven.org/maven2/org/apache/ivy/ivy" />
    - line 114 new: value="https://repo1.maven.org/maven2/org/apache/ivy/ivy" />
@@ -38,6 +39,7 @@ last_update: 05-01-24
    - line 21 new: value="https://repo1.maven.org/maven2/" override="false"/>
 
 ## Bigdata-interop
+
 - clean commit: b4f3b3b89e2eeb72d47fb9682cb0f2d2eef7bdec
 - fixed commit: a77484fdacc34b25c33ad1d31307b9e7e3b70bad
 
@@ -49,16 +51,28 @@ last_update: 05-01-24
     - line 110 new: <junit.version>4.13</junit.version>
 
 ## Hadoop
-- commit: 64f337236a3b8b25a9f8b77bc8562de22f5429ae
+- hdp-2.6.5-292
+    - commit: 3091053c59a62c82d82c9f778c48bde5ef0a89a1
+- hdp-3.1.4.0-315
+    - commit: 64f337236a3b8b25a9f8b77bc8562de22f5429ae
 
 ### Install
-- **gcs-connector (file from client project):** mvn install:install-file -Dfile=gcs-connector-1.9.10.3.1.4.0-315-shaded.jar -DgroupId=com.google.cloud.bigdataoss -DartifactId=gcs-connector -Dversion=1.9.10.3.1.4.0-315 -Dpackaging=jar -Dclassifier=shaded -DgeneratePom=true
+- hdp-2.6.5-292
+- hdp-3.1.4.0-315
+    - **gcs-connector (file from client project):** mvn install:install-file -Dfile=gcs-connector-1.9.10.3.1.4.0-315-shaded.jar -DgroupId=com.google.cloud.bigdataoss -DartifactId=gcs-connector -Dversion=1.9.10.3.1.4.0-315 -Dpackaging=jar -Dclassifier=shaded -DgeneratePom=true
 
 ### Build
 - mvn clean install -Pdist -Dtar -Pnative -DskipTests -Dmaven.javadoc.skip=true
 
 ### Notes
-- com.google.cloud.bigdataoss:gcs-connector:jar:shaded:1.9.10.3.1.4.0-315 Artifact used from clients folder. artifact can be built with [bigdata-interop release repository](https://github.com/hdpmirrors/bigdata-interop-release)
+- hdp-2.6.5-292
+    - required for hive build (shims 0.20)
+    - update pom.xml:
+        - line 116 old: <jetty.version>6.1.26.hwx</jetty.version>
+        - line 116 new: <jetty.version>6.1.26</jetty.version>
+- hdp-3.1.4.0-315    
+    - com.google.cloud.bigdataoss:gcs-connector:jar:shaded:1.9.10.3.1.4.0-315 Artifact used from clients folder. artifact can be built with [bigdata-interop release repository](https://github.com/hdpmirrors/bigdata-interop-release)
+
 
 ## Tez
 - commit: 2be004d2fd89132643d8b9dda21cb1ee0a24c5a9
@@ -87,22 +101,72 @@ last_update: 05-01-24
 ### Build
 - See README in repo for multiple steps
 
+## Orc
+- commit: ff6a21ca519e787cc9f6b2d03ae79185e3e5808c
+- required for Hive
+
+### Notes
+- requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Currently must find built version
+
+### Install
+- **hive-storage-api:** mvn install:install-file -Dfile=hive-storage-api-2.3.0.3.1.4.0-315.jar -DgroupId=org.apache.hive -DartifactId=hive-storage-api -Dversion=2.3.0.3.1.4.0-315 -Dpackaging=jar
+
+### Build
+- cd java mvn clean install -DskipTest
+
+## Arrow
+- commit: 65b2db28362a1097382daa023920ad62220f8b9c
+
+### Build
+- cd java -mvn clean install -Dskiptests
+
+## Pig
+- commit: 771cf70094ea27ec47a20699e6617963e80615af
+- required for Parquet
+- build paused due to missing dependencies
+
+### Notes
+- update build.xml:
+    - line 271 old: <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
+    - line 271 new:  <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
+
+
+
+## Parquet
+- commit: 077b895ff9776977c9d245f278ed0e117b388c00
+- required for hive
+- requires Pig
+- build paused due to missing dependencies
+
+## Hive
+- commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
+
+### Notes
+- requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Must currently find an already built version
+- requires parquet-hadoop-bundle-1.10.0.3.1.4.0-315.jar. Currently using prebuilt version (see notes in parquet and pig)
+- requires Orc, Arrow
+
+### Build
+- build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
+
 ## Spark2
 - commit: 45f7b124532cceff9257dff3697e494999bbb4ce
 
 ### Notes
 - reqs:
-    - hive-exec-1.21.2.3.1.4.0-315 (from client folder)
-    - hive-metastore-1.21.2.3.1.4.0-315 (from client folder)
-    - arrow-vector-0.8.0.3.1.4.0-315 (build?)
+    - hive-exec-1.21.2.3.1.4.0-315 (need to find prebuilt)
+    - hive-metastore-1.21.2.3.1.4.0-315 (need to find prebuilt)
+    - spark-sql_2.11-2.3.2.3.1.4.0-31 (need to find prebuilt)
+    - arrow-vector-0.8.0.3.1.4.0-315
     - Kafka
     
 ### Install
 - **hive-exec:** mvn install:install-file -Dfile=hive-exec-1.21.2.3.1.4.0-315.jar -DgroupId=org.spark-project.hive -DartifactId=hive-exec -Dversion=1.21.2.3.1.4.0-315 -Dpackaging=jar
 - **hive-metastore:** mvn install:install-file -Dfile=hive-metastore-1.21.2.3.1.4.0-315.jar -DgroupId=org.spark-project.hive -DartifactId=hive-metastore -Dversion=1.21.2.3.1.4.0-315 -Dpackaging=jar
-- kafka-clients:
+- **kafka-clients:**
 - mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
-- kafka_2.11:  mvn install:install-file -Dfile=kafka_2.11-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka_2.11 -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
+- **kafka_2.11:**  mvn install:install-file -Dfile=kafka_2.11-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka_2.11 -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
+- **spark-sql_2.11:** mvn install:install-file -Dfile=spark-sql_2.11-2.3.2.3.1.4.0-315.jar -DgroupId=org.apache.spark -DartifactId=spark-sql_2.11 -Dversion=2.11-2.3.2.3.1.4.0-315 -Dpackaging=jar
 The following 3 files also require updating kafka-0.10 pom and kafka-0.10-sql pom:
 - org.I0Itec: mvn install:install-file -Dfile=zkclient-0.10.jar -DgroupId=org.I0Itec -DartifactId=zkclient_2.11 -Dversion=0.10 -Dpackaging=jar
 - com.typesafe: mvn install:install-file -Dfile=scala-logging_2.11-3.9.0.jar -DgroupId=com.typesafe -DartifactId=scala-logging_2.12 -Dversion=3.9.0 -Dpackaging=jar
