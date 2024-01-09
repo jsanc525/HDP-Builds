@@ -202,9 +202,11 @@ last_update: 08-01-24
 - mvn clean install -DskipTests
 
 ## Accumulo
-- commit: 1d426422ceae3c53ea86a00a678ea7a6f26cd77a
+- original commit: 1d426422ceae3c53ea86a00a678ea7a6f26cd77a
+- fixed commit: 3f1f2bdfc7b2712d6cdde6a33a99ae180d8f8eba
 
 ### Notes
+- use pierre builder
 - add the following dependencies to the pom.xml for fate:
 ```
     <dependency>
@@ -224,6 +226,15 @@ last_update: 08-01-24
     </dependency>
 ```
 ### Install
+- mvn clean install -DskipTests
+
+## Druid
+- commit: 4ad580ba00c147f222f1a9dea892403bf7475351
+
+### Notes
+- use pierre builder
+
+### Build
 - mvn clean install -DskipTests
 
 ## Hive
