@@ -3,7 +3,7 @@ title: Build by Order for HDP
 author: Joe Azerof
 adapted_from: Gonzalo Etse
 date: 04-01-24
-last_update: 05-01-24
+last_update: 08-01-24
 ---
 
 # Build by Order
@@ -18,7 +18,7 @@ last_update: 05-01-24
     - replace tdp-builder at line 21: pierrotws/jenkins-tdp-builder:xenial
 
 ## Zookeeper
-- clean commit: 06cac3e3e20e698d651ac460c80fef7f75603b89
+- original commit: 06cac3e3e20e698d651ac460c80fef7f75603b89
 - fixed commit: 2da4bf051a2207cca943c767ba7258ec6264b4b5
 
 ### Install
@@ -40,7 +40,7 @@ last_update: 05-01-24
 
 ## Bigdata-interop
 
-- clean commit: b4f3b3b89e2eeb72d47fb9682cb0f2d2eef7bdec
+- original commit: b4f3b3b89e2eeb72d47fb9682cb0f2d2eef7bdec
 - fixed commit: a77484fdacc34b25c33ad1d31307b9e7e3b70bad
 
 ### Notes
@@ -81,7 +81,7 @@ last_update: 05-01-24
 - mvn clean install -pl \!tez-ui -Phadoop28 -P\!hadoop27 -DskipTests
 
 ## Kafka
-- clean commit: e1bc65efdca429882ac8e626b6e2d84287b08a3f
+- original commit: e1bc65efdca429882ac8e626b6e2d84287b08a3f
 - fixed commit: 086894ec3cbd49ddd614947a06f759abef2cfdef
 
 ## Notes
@@ -101,56 +101,15 @@ last_update: 05-01-24
 ### Build
 - See README in repo for multiple steps
 
-## Orc
-- commit: ff6a21ca519e787cc9f6b2d03ae79185e3e5808c
-- required for Hive
-
-### Notes
-- requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Currently must find built version
-
-### Install
-- **hive-storage-api:** mvn install:install-file -Dfile=hive-storage-api-2.3.0.3.1.4.0-315.jar -DgroupId=org.apache.hive -DartifactId=hive-storage-api -Dversion=2.3.0.3.1.4.0-315 -Dpackaging=jar
-
-### Build
-- cd java mvn clean install -DskipTest
-
 ## Arrow
 - commit: 65b2db28362a1097382daa023920ad62220f8b9c
 
 ### Build
 - cd java -mvn clean install -Dskiptests
 
-## Pig
-- commit: 771cf70094ea27ec47a20699e6617963e80615af
-- required for Parquet
-- build paused due to missing dependencies
-
-### Notes
-- update build.xml:
-    - line 271 old: <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
-    - line 271 new:  <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
-
-
-
-## Parquet
-- commit: 077b895ff9776977c9d245f278ed0e117b388c00
-- required for hive
-- requires Pig
-- build paused due to missing dependencies
-
-## Hive
-- commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
-
-### Notes
-- requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Must currently find an already built version
-- requires parquet-hadoop-bundle-1.10.0.3.1.4.0-315.jar. Currently using prebuilt version (see notes in parquet and pig)
-- requires Orc, Arrow
-
-### Build
-- build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
-
 ## Spark2
-- commit: 45f7b124532cceff9257dff3697e494999bbb4ce
+- original commit: 45f7b124532cceff9257dff3697e494999bbb4ce
+- fixed commit: 5ca520afc983df5334b2bdf17857c820f1db01d7
 
 ### Notes
 - reqs:
@@ -167,10 +126,58 @@ last_update: 05-01-24
 - mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
 - **kafka_2.11:**  mvn install:install-file -Dfile=kafka_2.11-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka_2.11 -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
 - **spark-sql_2.11:** mvn install:install-file -Dfile=spark-sql_2.11-2.3.2.3.1.4.0-315.jar -DgroupId=org.apache.spark -DartifactId=spark-sql_2.11 -Dversion=2.11-2.3.2.3.1.4.0-315 -Dpackaging=jar
-The following 3 files also require updating kafka-0.10 pom and kafka-0.10-sql pom:
-- org.I0Itec: mvn install:install-file -Dfile=zkclient-0.10.jar -DgroupId=org.I0Itec -DartifactId=zkclient_2.11 -Dversion=0.10 -Dpackaging=jar
-- com.typesafe: mvn install:install-file -Dfile=scala-logging_2.11-3.9.0.jar -DgroupId=com.typesafe -DartifactId=scala-logging_2.12 -Dversion=3.9.0 -Dpackaging=jar
-- com.yammer: mvn install:install-file -Dfile=metrics-core-2.2.0.jar -DgroupId=com.yammer -DartifactId=metrics-core -Dversion=2.2.0 -Dpackaging=jar -DgeneratePom=true
+
+**The following 3 files also require updating kafka-0.10 pom and kafka-0.10-sql pom:**
+- **zkclient:** mvn install:install-file -Dfile=zkclient-0.10.jar -DgroupId=org.apache.zookeeper -DartifactId=zkclient -Dversion=0.10 -Dpackaging=jar
+- **scala-logging_2.11:** mvn install:install-file -Dfile=scala-logging_2.11-3.9.0.jar -DgroupId=com.typesafe -DartifactId=scala-logging_2.12 -Dversion=3.9.0 -Dpackaging=jar
+- **metrics-core:** mvn install:install-file -Dfile=metrics-core-2.2.0.jar -DgroupId=org.apache.kafka -DartifactId=metrics-core -Dversion=2.2.0 -Dpackaging=jar -DgeneratePom=true
 
 ### Build
-- ./dev/make-distribution.sh --name tdp --tgz -Phive -Phive-thriftserver -Pyarn -Phadoop-3.1 -Pflume
+- build/mvn clean install -DskipTests
+
+## Orc
+- commit: ff6a21ca519e787cc9f6b2d03ae79185e3e5808c
+- required for Hive
+
+### Notes
+- requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Currently must find built version
+
+### Install
+- **hive-storage-api:** mvn install:install-file -Dfile=hive-storage-api-2.3.0.3.1.4.0-315.jar -DgroupId=org.apache.hive -DartifactId=hive-storage-api -Dversion=2.3.0.3.1.4.0-315 -Dpackaging=jar
+
+### Build
+- cd java mvn clean install -DskipTest
+
+## Pig
+- commit: 771cf70094ea27ec47a20699e6617963e80615af
+- required for Parquet
+- build paused due to missing dependencies
+
+### Notes
+- update build.xml:
+    - line 271 old: <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
+    - line 271 new:  <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
+
+## Parquet
+- commit: 077b895ff9776977c9d245f278ed0e117b388c00
+- required for hive
+- requires Pig
+- build paused due to missing dependencies
+
+## Hbase
+- commit:
+
+### Notes
+
+### Build
+
+## Hive
+- commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
+
+### Notes
+- requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Must currently find an already built version
+- requires parquet-hadoop-bundle-1.10.0.3.1.4.0-315.jar. Currently using prebuilt version (see notes in parquet and pig)
+- requires Orc, Arrow
+
+### Build
+- build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
