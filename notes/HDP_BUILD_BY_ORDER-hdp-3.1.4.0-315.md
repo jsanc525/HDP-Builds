@@ -175,9 +175,31 @@ last_update: 08-01-24
 ### Build
 - mvn clean install -DskipTests -Denforcer.skip=true
 
-### Notes
+## Calcite-avetica
+- original commit: 49b4e3af8f5ffdd09eb55a9ef3e06fb5ae9b5f4e
+- fixed commit: eafea7aa42231bba683ab4230b8d3ae5c752f0d1
 
-### Build
+### Notes
+- required for Calcite
+- update pom at line 644:
+    - from <url>http://repo.maven.apache.org/maven2</url>
+    - to <url>https://repo.maven.apache.org/maven2</url>
+
+### Install
+- mvn clean install -DskipTests
+
+## Calcite
+- required for Hive
+- original commit: a50f5b5e66b79564e93910a8e4d4c672bc8405d2
+- fixed commit: ae469ee44a3ebcbd9491a5152b1c1d79d90c081c
+
+### Notes
+- update pom at line 933:
+    - from <url>http://repo.maven.apache.org/maven2</url>
+    - to <url>https://repo.maven.apache.org/maven2</url>
+
+### Install
+- mvn clean install -DskipTests
 
 ## Hive
 - commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
