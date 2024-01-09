@@ -122,8 +122,7 @@ last_update: 08-01-24
 ### Install
 - **hive-exec:** mvn install:install-file -Dfile=hive-exec-1.21.2.3.1.4.0-315.jar -DgroupId=org.spark-project.hive -DartifactId=hive-exec -Dversion=1.21.2.3.1.4.0-315 -Dpackaging=jar
 - **hive-metastore:** mvn install:install-file -Dfile=hive-metastore-1.21.2.3.1.4.0-315.jar -DgroupId=org.spark-project.hive -DartifactId=hive-metastore -Dversion=1.21.2.3.1.4.0-315 -Dpackaging=jar
-- **kafka-clients:**
-- mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
+- **kafka-clients:** mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
 - **kafka_2.11:**  mvn install:install-file -Dfile=kafka_2.11-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka_2.11 -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
 - **spark-sql_2.11:** mvn install:install-file -Dfile=spark-sql_2.11-2.3.2.3.1.4.0-315.jar -DgroupId=org.apache.spark -DartifactId=spark-sql_2.11 -Dversion=2.11-2.3.2.3.1.4.0-315 -Dpackaging=jar
 
@@ -165,7 +164,16 @@ last_update: 08-01-24
 - build paused due to missing dependencies
 
 ## Hbase
-- commit:
+- original commit: a4745b1cb015baf68e92f3a5b50da25b69aebfb8
+- fixed commit: fbc4a40d4c176236a9ea56758146b0eec14513ad
+
+### Notes
+- main pom updated at line 1368:
+    - from <spark.version>2.3.2.3.1.4.0-314</spark.version>
+    - to <spark.version>2.3.2.3.1.4.0-315</spark.version>
+
+### Build
+- mvn clean install -DskipTests -Denforcer.skip=true
 
 ### Notes
 
