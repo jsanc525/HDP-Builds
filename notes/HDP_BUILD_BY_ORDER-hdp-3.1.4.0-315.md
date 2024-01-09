@@ -201,6 +201,31 @@ last_update: 08-01-24
 ### Install
 - mvn clean install -DskipTests
 
+## Accumulo
+- commit: 1d426422ceae3c53ea86a00a678ea7a6f26cd77a
+
+### Notes
+- add the following dependencies to the pom.xml for fate:
+```
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+```
+### Install
+- mvn clean install -DskipTests
+
 ## Hive
 - commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
 
