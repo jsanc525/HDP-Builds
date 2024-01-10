@@ -157,6 +157,14 @@ last_update: 08-01-24
     - line 271 old: <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
     - line 271 new:  <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
 
+- org.apache.hive.shims#hive-shims-0.20S;2.0.0: not found
+    - [a snapshot can be downloaded and installed manually](https://repository.apache.org/content/groups/snapshots-group/org/apache/hive/shims/hive-shims-0.20S/2.0.0-SNAPSHOT/)
+    - mvn install:install-file -Dfile=hive-shims-0.20S-2.0.0-20151026.200042-482.jar -DgroupId=org.apache.hive.shims -DartifactId=hive-shims-0.20S -Dversion=2.0.0 -Dpackaging=jar -DgeneratePom=true
+
+
+### Build
+- ant clean jar piggybank
+
 ## Parquet
 - commit: 077b895ff9776977c9d245f278ed0e117b388c00
 - required for hive
@@ -238,12 +246,29 @@ last_update: 08-01-24
 - mvn clean install -DskipTests
 
 ## Hive
-- commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
+- original commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
+- fixed commit: 6410efcb067d8bfb4c12701f2da1862cf74da548
 
 ### Notes
 - requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Must currently find an already built version
 - requires parquet-hadoop-bundle-1.10.0.3.1.4.0-315.jar. Currently using prebuilt version (see notes in parquet and pig)
 - requires Orc, Arrow
+- task :hive-webhcat fails with error of package org.apache.commons.httpclient does not exist and requires an update to hcatalog pom.xml:
+```
+    <dependency>
+         <groupId>commons-httpclient</groupId>
+         <artifactId>commons-httpclient</artifactId>
+         <version>3.1</version>
+    </dependency>
+```
+### Install
+- **org.apache.pig:pig:jar:h2:0.16.0.3.1.4.0:** mvn install:install-file -Dfile=pig-0.16.0.3.1.4.0-315-core-h2.jar -DgroupId=org.apache.pig -DartifactId=pig -Dversion=0.16.0.3.1.4.0-SNAPSHOT -Dpackaging=jar -Dclassifier=h2
+- **org.apache.pig:pig:jar:h2:0.16.0.3.1.4.0:** mvn install:install-file -Dfile=pig-0.16.0.3.1.4.0-315-core-h2.jar -DgroupId=org.apache.pig -DartifactId=pig -Dversion=0.16.0.3.1.4.0-SNAPSHOT -Dpackaging=
+- [**hive-metastore-1.2.1000.2.6.0.3-8.jar**](https://repo.hortonworks.com/content/repositories/releases/org/apache/hive/hive-metastore/1.2.1000.2.6.0.3-8/hive-metastore-1.2.1000.2.6.0.3-8.jar): mvn install:install-file -Dfile=hive-metastore-1.2.1000.2.6.0.3-8.jar -DgroupId=org.apache.hive -DartifactId=hive-metastore -Dversion=1.2.1000.2.6.0.3-8 -Dpackaging=jar
+- [**hive-exec-1.2.1000.2.6.0.3-8**](https://repo.hortonworks.com/content/repositories/releases/org/apache/hive/hive-exec/1.2.1000.2.6.0.3-8/hive-exec-1.2.1000.2.6.0.3-8.jar): 
+- [**hadoop-common-2.7.3.2.6.0.3-8**](https://repo.hortonworks.com/content/repositories/releases/org/apache/hadoop/hadoop-common/2.7.3.2.6.0.3-8/hadoop-common-2.7.3.2.6.0.3-8.jar)
+- **kafka_2.11-test** : mvn install:install-file -Dfile=kafka_2.11-2.0.0.3.1.4.0-315-test.jar -DgroupId=org.apache.kafka -DartifactId=kafka_2.11 -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar -Dclassifier=test
+- **kafka-clients-test** : mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315-test.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar -Dclassifier=test
 
 ### Build
 - build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
