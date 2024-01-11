@@ -296,6 +296,8 @@ last_update: 11-01-24
     - replace line 115: https://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
 - The following need to be present in the build environment:
     - R==3.x
+    - openjdk-7-jdk (or Oracle Java7 jdk) (I used sdkman to install java 8.0.392.fx-zulu)
+    - python-dev
     - for pip2:
         - pytest 
         - cloudpickle==0.2.1 
@@ -307,12 +309,11 @@ last_update: 11-01-24
         - requests-kerberos==0.11.0 
         - flake8==3.7.9 
         - flaky==3.7.0 
-- validate Python-API requests !!! IGNORED !!! for now
 - [pytest-runner removed](https://pypi.org/project/pytest-runner/)
 
 
 #### Build
-- mvn clean install -DskipTests
+- mvn clean install -DskipTests -Drat.skip=true
 
 ## [Knox](https://github.com/jsanc525/knox-release)
 - original commit: c38350f3d9080c5b77baa8a9c43d6095b72954d8
