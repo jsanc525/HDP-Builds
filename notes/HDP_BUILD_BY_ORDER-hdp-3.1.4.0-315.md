@@ -320,6 +320,15 @@ last_update: 08-01-24
 ### Build
 - mvn clean install -DskipTests
 
+## Atlas
+- original commmit: 171256bea28203b03d2ae5fce0b6c580d9cb27c8
+
+### Notes
+- required for Ranger
+
+### Build 
+- mvn clean install -DskipTests
+
 ## Ranger
 - original commit: 048021743aa06e4214d79c79fde896c4139b3105
 - fixed commit:
@@ -333,7 +342,7 @@ last_update: 08-01-24
             <version>2.0.0.3.1.4.0-315</version>
         </dependency>
 ```
-- add the following dependencies to plugins-kafka/pom.xml:
+- add the following dependency to plugins-kafka/pom.xml:
 ```
     <dependency>
         <groupId>org.apache.kafka</groupId>
@@ -341,6 +350,7 @@ last_update: 08-01-24
         <version>0.10</version>
     </dependency>  
 ```
+- add the following dependency to plugins-kafka/pom.xml and ranger-kafka-plugin-shim/pom.xml
 ```
     <dependency>
         <groupId>org.scala-lang</groupId>
@@ -348,6 +358,5 @@ last_update: 08-01-24
         <version>2.11.12</version>
     </dependency>
 ```
-
 ### Build
--
+- mvn clean compile package install -DskipTests assembly:assembly
