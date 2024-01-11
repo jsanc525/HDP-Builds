@@ -331,7 +331,7 @@ last_update: 08-01-24
 
 ## Ranger
 - original commit: 048021743aa06e4214d79c79fde896c4139b3105
-- fixed commit:
+- fixed commit: 9ee3ade7282070b82566d12f63904a877e396f8a
 
 ### Notes
 - add the following dependency to agents-audit/pom.xml:
