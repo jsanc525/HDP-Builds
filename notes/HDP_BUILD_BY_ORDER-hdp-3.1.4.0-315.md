@@ -10,7 +10,7 @@ last_update: 11-01-24
 
 ## TDP
 
-##### Notes
+#### Notes
 - in some cases a custom docker image: pierrotws/jenkins-tdp-builder:xenial is needed for builds
 - create and rename a copy of the bin/start-build-env.sh file (it's needed for a couple components)
 - Modify the file:
@@ -21,11 +21,11 @@ last_update: 11-01-24
 - original commit: 06cac3e3e20e698d651ac460c80fef7f75603b89
 - fixed commit: 2da4bf051a2207cca943c767ba7258ec6264b4b5
 
-##### Install
+#### Install
 - mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar
 - mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}-test.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar -Dclassifier=tests
 
-##### Notes
+#### Notes
 - uses pierre builder
 - multipld hdp tags are grouped together for this build of zookeeper. The same version of zookeeper will work with both hadoop builds needed below
 - update build.xml:
@@ -43,7 +43,7 @@ last_update: 11-01-24
 - original commit: b4f3b3b89e2eeb72d47fb9682cb0f2d2eef7bdec
 - fixed commit: a77484fdacc34b25c33ad1d31307b9e7e3b70bad
 
-##### Notes
+#### Notes
 - update pom.xml:
     - line 109 old: <hadoop.three.version>3.1.1.3.1.4.0-314</hadoop.three.version>
     - line 109 new: <hadoop.three.version>3.1.1.3.1.4.0-315</hadoop.three.version>
@@ -56,15 +56,15 @@ last_update: 11-01-24
 - hdp-3.1.4.0-315
     - commit: 64f337236a3b8b25a9f8b77bc8562de22f5429ae
 
-##### Install
+#### Install
 - hdp-2.6.5-292
 - hdp-3.1.4.0-315
     - **gcs-connector (file from client project):** mvn install:install-file -Dfile=gcs-connector-1.9.10.3.1.4.0-315-shaded.jar -DgroupId=com.google.cloud.bigdataoss -DartifactId=gcs-connector -Dversion=1.9.10.3.1.4.0-315 -Dpackaging=jar -Dclassifier=shaded -DgeneratePom=true
 
-##### Build
+#### Build
 - mvn clean install -Pdist -Dtar -Pnative -DskipTests -Dmaven.javadoc.skip=true
 
-##### Notes
+#### Notes
 - hdp-2.6.5-292
     - required for hive build (shims 0.20)
     - update pom.xml:
@@ -77,7 +77,7 @@ last_update: 11-01-24
 ## Tez
 - commit: 2be004d2fd89132643d8b9dda21cb1ee0a24c5a9
 
-##### Build
+#### Build
 - mvn clean install -pl \!tez-ui -Phadoop28 -P\!hadoop27 -DskipTests
 
 ## Kafka
@@ -91,27 +91,27 @@ last_update: 11-01-24
     - line 27 old: mavenUrl=http://nexus-private.hortonworks.com:8081/nexus/content/repositories/IN-QA
     -line 27 new: mavenUrl=https://repo1.maven.org/maven2/
 
-##### Notes
+#### Notes
 - requires pierre builder and it is recomnded to change gradle version to 4.5.1
 - gradle version management most easily achieved using [SDKMAN!](https://sdkman.io/install)
     - [Usage instructions](https://sdkman.io/usage#use)
     - [Stack-overflow](https://stackoverflow.com/questions/47884051/install-specific-version-of-gradle) with special attention the following instruction
     >1 Great answer! I would add that the gradle binary is added to $HOME/.sdkman/candidates/gradle/[version]/bin. Add this to your PATH environment variable, source the file and you're good to go. – anegru
 
-##### Build
+#### Build
 - See README in repo for multiple steps
 
 ## Arrow
 - commit: 65b2db28362a1097382daa023920ad62220f8b9c
 
-##### Build
+#### Build
 - cd java -mvn clean install -Dskiptests
 
 ## Spark2
 - original commit: 45f7b124532cceff9257dff3697e494999bbb4ce
 - fixed commit: 5ca520afc983df5334b2bdf17857c820f1db01d7
 
-##### Notes
+#### Notes
 - reqs:
     - hive-exec-1.21.2.3.1.4.0-315 (need to find prebuilt)
     - hive-metastore-1.21.2.3.1.4.0-315 (need to find prebuilt)
@@ -119,7 +119,7 @@ last_update: 11-01-24
     - arrow-vector-0.8.0.3.1.4.0-315
     - Kafka
     
-##### Install
+#### Install
 - **hive-exec:** mvn install:install-file -Dfile=hive-exec-1.21.2.3.1.4.0-315.jar -DgroupId=org.spark-project.hive -DartifactId=hive-exec -Dversion=1.21.2.3.1.4.0-315 -Dpackaging=jar
 - **hive-metastore:** mvn install:install-file -Dfile=hive-metastore-1.21.2.3.1.4.0-315.jar -DgroupId=org.spark-project.hive -DartifactId=hive-metastore -Dversion=1.21.2.3.1.4.0-315 -Dpackaging=jar
 - **kafka-clients:** mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar
@@ -131,20 +131,20 @@ last_update: 11-01-24
 - **scala-logging_2.11:** mvn install:install-file -Dfile=scala-logging_2.11-3.9.0.jar -DgroupId=com.typesafe -DartifactId=scala-logging_2.12 -Dversion=3.9.0 -Dpackaging=jar
 - **metrics-core:** mvn install:install-file -Dfile=metrics-core-2.2.0.jar -DgroupId=org.apache.kafka -DartifactId=metrics-core -Dversion=2.2.0 -Dpackaging=jar -DgeneratePom=true
 
-##### Build
+#### Build
 - build/mvn clean install -DskipTests
 
 ## Orc
 - commit: ff6a21ca519e787cc9f6b2d03ae79185e3e5808c
 - required for Hive
 
-##### Notes
+#### Notes
 - requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Currently must find built version
 
-##### Install
+#### Install
 - **hive-storage-api:** mvn install:install-file -Dfile=hive-storage-api-2.3.0.3.1.4.0-315.jar -DgroupId=org.apache.hive -DartifactId=hive-storage-api -Dversion=2.3.0.3.1.4.0-315 -Dpackaging=jar
 
-##### Build
+#### Build
 - cd java mvn clean install -DskipTest
 
 ## Pig
@@ -152,7 +152,7 @@ last_update: 11-01-24
 - required for Parquet
 - build paused due to missing dependencies
 
-##### Notes
+#### Notes
 - update build.xml:
     - line 271 old: <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
     - line 271 new:  <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
@@ -162,7 +162,7 @@ last_update: 11-01-24
     - mvn install:install-file -Dfile=hive-shims-0.20S-2.0.0-20151026.200042-482.jar -DgroupId=org.apache.hive.shims -DartifactId=hive-shims-0.20S -Dversion=2.0.0 -Dpackaging=jar -DgeneratePom=true
 
 
-##### Build
+#### Build
 - ant clean jar piggybank
 
 ## Parquet
@@ -175,25 +175,25 @@ last_update: 11-01-24
 - original commit: a4745b1cb015baf68e92f3a5b50da25b69aebfb8
 - fixed commit: fbc4a40d4c176236a9ea56758146b0eec14513ad
 
-##### Notes
+#### Notes
 - main pom updated at line 1368:
     - from <spark.version>2.3.2.3.1.4.0-314</spark.version>
     - to <spark.version>2.3.2.3.1.4.0-315</spark.version>
 
-##### Build
+#### Build
 - mvn clean install -DskipTests -Denforcer.skip=true
 
 ## Calcite-avetica
 - original commit: 49b4e3af8f5ffdd09eb55a9ef3e06fb5ae9b5f4e
 - fixed commit: eafea7aa42231bba683ab4230b8d3ae5c752f0d1
 
-##### Notes
+#### Notes
 - required for Calcite
 - update pom at line 644:
     - from <url>http://repo.maven.apache.org/maven2</url>
     - to <url>https://repo.maven.apache.org/maven2</url>
 
-##### Install
+#### Install
 - mvn clean install -DskipTests
 
 ## Calcite
@@ -201,19 +201,19 @@ last_update: 11-01-24
 - original commit: a50f5b5e66b79564e93910a8e4d4c672bc8405d2
 - fixed commit: ae469ee44a3ebcbd9491a5152b1c1d79d90c081c
 
-##### Notes
+#### Notes
 - update pom at line 933:
     - from <url>http://repo.maven.apache.org/maven2</url>
     - to <url>https://repo.maven.apache.org/maven2</url>
 
-##### Install
+#### Install
 - mvn clean install -DskipTests
 
 ## Accumulo
 - original commit: 1d426422ceae3c53ea86a00a678ea7a6f26cd77a
 - fixed commit: 3f1f2bdfc7b2712d6cdde6a33a99ae180d8f8eba
 
-##### Notes
+#### Notes
 - use pierre builder
 - add the following dependencies to the pom.xml for fate:
 ```
@@ -233,23 +233,23 @@ last_update: 11-01-24
       <version>${slf4j.version}</version>
     </dependency>
 ```
-##### Install
+#### Install
 - mvn clean install -DskipTests
 
 ## Druid
 - commit: 4ad580ba00c147f222f1a9dea892403bf7475351
 
-##### Notes
+#### Notes
 - use pierre builder
 
-##### Build
+#### Build
 - mvn clean install -DskipTests
 
 ## Hive
 - original commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
 - fixed commit: 6410efcb067d8bfb4c12701f2da1862cf74da548
 
-##### Notes
+#### Notes
 - requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Must currently find an already built version
 - requires parquet-hadoop-bundle-1.10.0.3.1.4.0-315.jar. Currently using prebuilt version (see notes in parquet and pig)
 - requires Orc, Arrow
@@ -261,7 +261,7 @@ last_update: 11-01-24
          <version>3.1</version>
     </dependency>
 ```
-##### Install
+#### Install
 - **org.apache.pig:pig:jar:h2:0.16.0.3.1.4.0:** mvn install:install-file -Dfile=pig-0.16.0.3.1.4.0-315-core-h2.jar -DgroupId=org.apache.pig -DartifactId=pig -Dversion=0.16.0.3.1.4.0-SNAPSHOT -Dpackaging=jar -Dclassifier=h2
 - **org.apache.pig:pig:jar:h2:0.16.0.3.1.4.0:** mvn install:install-file -Dfile=pig-0.16.0.3.1.4.0-315-core-h2.jar -DgroupId=org.apache.pig -DartifactId=pig -Dversion=0.16.0.3.1.4.0-SNAPSHOT -Dpackaging=
 - [**hive-metastore-1.2.1000.2.6.0.3-8.jar**](https://repo.hortonworks.com/content/repositories/releases/org/apache/hive/hive-metastore/1.2.1000.2.6.0.3-8/hive-metastore-1.2.1000.2.6.0.3-8.jar): mvn install:install-file -Dfile=hive-metastore-1.2.1000.2.6.0.3-8.jar -DgroupId=org.apache.hive -DartifactId=hive-metastore -Dversion=1.2.1000.2.6.0.3-8 -Dpackaging=jar
@@ -270,20 +270,20 @@ last_update: 11-01-24
 - **kafka_2.11-test** : mvn install:install-file -Dfile=kafka_2.11-2.0.0.3.1.4.0-315-test.jar -DgroupId=org.apache.kafka -DartifactId=kafka_2.11 -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar -Dclassifier=test
 - **kafka-clients-test** : mvn install:install-file -Dfile=kafka-clients-2.0.0.3.1.4.0-315-test.jar -DgroupId=org.apache.kafka -DartifactId=kafka-clients -Dversion=2.0.0.3.1.4.0-315 -Dpackaging=jar -Dclassifier=test
 
-##### Build
+#### Build
 - build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
 
 ## Oozie
 - original commit: dac9f582547700dd4376b66d98991f3046825e16
 
-##### Notes
+#### Notes
 - use pierre builder
 - update http in pom.xml:
     - line 159 old: <url>http://repo1.maven.org/maven2</url>
     - line 159 new: <url>https://repo1.maven.org/maven2</url>
 - requires org.apache.oozie:oozie-hadoop-auth:jar:hadoop-2-4.3.1.3.1.4.0-315. currently using prebuilt version
 
-##### Install
+#### Install
 - **oozie-hadoop-auth** : mvn install:install-file -Dfile=oozie-hadoop-auth-hadoop-2-4.3.1.3.1.4.0-315.jar -DgroupId=org.apache.oozie -Dartifactid=oozie-hadoop-auth -Dpacakging=jar -Dversion=hadoop-2-4.3.1.3.1.4.0-315 
 
 
@@ -291,7 +291,7 @@ last_update: 11-01-24
 - original commit: 2335c8393374da7af488fa322b12031e98b6633f
 - fixed commit: de8cb7b48f02bdfc4ae1ab02186826186c7c6597
 
-##### Notes
+#### Notes
 - update pom.xml:
     - replace line 115: https://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
 - The following need to be present in the build environment:
@@ -311,29 +311,29 @@ last_update: 11-01-24
 - [pytest-runner removed](https://pypi.org/project/pytest-runner/)
 
 
-##### Build
+#### Build
 - mvn clean install -DskipTests
 
 ## Knox
 - original commit: c38350f3d9080c5b77baa8a9c43d6095b72954d8
 
-##### Build
+#### Build
 - mvn clean install -DskipTests
 
 ## Atlas
 - original commmit: 171256bea28203b03d2ae5fce0b6c580d9cb27c8
 
-##### Notes
+#### Notes
 - required for Ranger
 
-##### Build 
+#### Build 
 - mvn clean install -DskipTests
 
 ## Ranger
 - original commit: 048021743aa06e4214d79c79fde896c4139b3105
 - fixed commit: 9ee3ade7282070b82566d12f63904a877e396f8a
 
-##### Notes
+#### Notes
 - add the following dependency to agents-audit/pom.xml:
 ```     
         <dependency>
@@ -358,5 +358,5 @@ last_update: 11-01-24
         <version>2.11.12</version>
     </dependency>
 ```
-##### Build
+#### Build
 - mvn clean compile package install -DskipTests assembly:assembly
