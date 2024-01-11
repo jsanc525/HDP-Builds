@@ -17,9 +17,9 @@ last_update: 11-01-24
     - insert at line 6: docker pull pierrotws/jenkins-tdp-builder:xenial
     - replace tdp-builder at line 21: pierrotws/jenkins-tdp-builder:xenial
 
-## Zookeeper
+## [Zookeeper](https://github.com/jsanc525/zookeeper-release)
 - original commit: 06cac3e3e20e698d651ac460c80fef7f75603b89
-- fixed commit: 2da4bf051a2207cca943c767ba7258ec6264b4b5
+- updated commit: 2da4bf051a2207cca943c767ba7258ec6264b4b5
 
 #### Install
 - mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar
@@ -38,10 +38,10 @@ last_update: 11-01-24
    - line 21 old: value="http://repo1.maven.org/maven2/" override="false"/>
    - line 21 new: value="https://repo1.maven.org/maven2/" override="false"/>
 
-## Bigdata-interop
+## [Bigdata-interop](https://github.com/jsanc525/bigdata-interop-release)
 
 - original commit: b4f3b3b89e2eeb72d47fb9682cb0f2d2eef7bdec
-- fixed commit: a77484fdacc34b25c33ad1d31307b9e7e3b70bad
+- updated commit: a77484fdacc34b25c33ad1d31307b9e7e3b70bad
 
 #### Notes
 - update pom.xml:
@@ -50,7 +50,7 @@ last_update: 11-01-24
     - line 110 old: <junit.version>4.13-SNAPSHOT</junit.version>
     - line 110 new: <junit.version>4.13</junit.version>
 
-## Hadoop
+## [Hadoop](https://github.com/jsanc525/hadoop-release)
 - hdp-2.6.5-292
     - commit: 3091053c59a62c82d82c9f778c48bde5ef0a89a1
 - hdp-3.1.4.0-315
@@ -74,15 +74,15 @@ last_update: 11-01-24
     - com.google.cloud.bigdataoss:gcs-connector:jar:shaded:1.9.10.3.1.4.0-315 Artifact used from clients folder. artifact can be built with [bigdata-interop release repository](https://github.com/hdpmirrors/bigdata-interop-release)
 
 
-## Tez
+## [Tez](https://github.com/jsanc525/tez-release)
 - commit: 2be004d2fd89132643d8b9dda21cb1ee0a24c5a9
 
 #### Build
 - mvn clean install -pl \!tez-ui -Phadoop28 -P\!hadoop27 -DskipTests
 
-## Kafka
+## [Kafka](https://github.com/jsanc525/kafka-release)
 - original commit: e1bc65efdca429882ac8e626b6e2d84287b08a3f
-- fixed commit: 086894ec3cbd49ddd614947a06f759abef2cfdef
+- updated commit: 086894ec3cbd49ddd614947a06f759abef2cfdef
 
 ## Notes
 - update gradle.properties:
@@ -101,15 +101,15 @@ last_update: 11-01-24
 #### Build
 - See README in repo for multiple steps
 
-## Arrow
+## [Arrow](https://github.com/jsanc525/arrow-release)
 - commit: 65b2db28362a1097382daa023920ad62220f8b9c
 
 #### Build
 - cd java -mvn clean install -Dskiptests
 
-## Spark2
+## [Spark2](https://github.com/jsanc525/spark2-release)
 - original commit: 45f7b124532cceff9257dff3697e494999bbb4ce
-- fixed commit: 5ca520afc983df5334b2bdf17857c820f1db01d7
+- updated commit: 5ca520afc983df5334b2bdf17857c820f1db01d7
 
 #### Notes
 - reqs:
@@ -134,7 +134,7 @@ last_update: 11-01-24
 #### Build
 - build/mvn clean install -DskipTests
 
-## Orc
+## [Orc](https://github.com/jsanc525/orc-release)
 - commit: ff6a21ca519e787cc9f6b2d03ae79185e3e5808c
 - required for Hive
 
@@ -147,7 +147,7 @@ last_update: 11-01-24
 #### Build
 - cd java mvn clean install -DskipTest
 
-## Pig
+## [Pig](https://github.com/jsanc525/pig-release)
 - commit: 771cf70094ea27ec47a20699e6617963e80615af
 - required for Parquet
 - build paused due to missing dependencies
@@ -165,15 +165,15 @@ last_update: 11-01-24
 #### Build
 - ant clean jar piggybank
 
-## Parquet
+## [Parquet](https://github.com/jsanc525/parquet-mr-release)
 - commit: 077b895ff9776977c9d245f278ed0e117b388c00
 - required for hive
 - requires Pig
 - build paused due to missing dependencies
 
-## Hbase
+## [Hbase](https://github.com/jsanc525/hbase-release)
 - original commit: a4745b1cb015baf68e92f3a5b50da25b69aebfb8
-- fixed commit: fbc4a40d4c176236a9ea56758146b0eec14513ad
+- updated commit: fbc4a40d4c176236a9ea56758146b0eec14513ad
 
 #### Notes
 - main pom updated at line 1368:
@@ -183,9 +183,9 @@ last_update: 11-01-24
 #### Build
 - mvn clean install -DskipTests -Denforcer.skip=true
 
-## Calcite-avetica
+## [Calcite-avetica](https://github.com/jsanc525/calcite_avatica-release)
 - original commit: 49b4e3af8f5ffdd09eb55a9ef3e06fb5ae9b5f4e
-- fixed commit: eafea7aa42231bba683ab4230b8d3ae5c752f0d1
+- updated commit: eafea7aa42231bba683ab4230b8d3ae5c752f0d1
 
 #### Notes
 - required for Calcite
@@ -196,10 +196,10 @@ last_update: 11-01-24
 #### Install
 - mvn clean install -DskipTests
 
-## Calcite
+## [Calcite](https://github.com/jsanc525/calcite-release)
 - required for Hive
 - original commit: a50f5b5e66b79564e93910a8e4d4c672bc8405d2
-- fixed commit: ae469ee44a3ebcbd9491a5152b1c1d79d90c081c
+- updated commit: ae469ee44a3ebcbd9491a5152b1c1d79d90c081c
 
 #### Notes
 - update pom at line 933:
@@ -209,9 +209,9 @@ last_update: 11-01-24
 #### Install
 - mvn clean install -DskipTests
 
-## Accumulo
+## [Accumulo](https://github.com/jsanc525/accumulo-release)
 - original commit: 1d426422ceae3c53ea86a00a678ea7a6f26cd77a
-- fixed commit: 3f1f2bdfc7b2712d6cdde6a33a99ae180d8f8eba
+- updated commit: 3f1f2bdfc7b2712d6cdde6a33a99ae180d8f8eba
 
 #### Notes
 - use pierre builder
@@ -236,7 +236,7 @@ last_update: 11-01-24
 #### Install
 - mvn clean install -DskipTests
 
-## Druid
+## [Druid](https://github.com/jsanc525/druid-release)
 - commit: 4ad580ba00c147f222f1a9dea892403bf7475351
 
 #### Notes
@@ -245,9 +245,9 @@ last_update: 11-01-24
 #### Build
 - mvn clean install -DskipTests
 
-## Hive
+## [Hive](https://github.com/jsanc525/hive-release)
 - original commit: c0f9f621f56dd1c2687fc7f0f5b0eebab65f0138
-- fixed commit: 6410efcb067d8bfb4c12701f2da1862cf74da548
+- updated commit: 6410efcb067d8bfb4c12701f2da1862cf74da548
 
 #### Notes
 - requires org.apache.hive:hive-storage-api:jar:2.3.0.3.1.4.0-315. Must currently find an already built version
@@ -273,7 +273,7 @@ last_update: 11-01-24
 #### Build
 - build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
 
-## Oozie
+## [Oozie](https://github.com/jsanc525/oozie-release)
 - original commit: dac9f582547700dd4376b66d98991f3046825e16
 
 #### Notes
@@ -287,9 +287,9 @@ last_update: 11-01-24
 - **oozie-hadoop-auth** : mvn install:install-file -Dfile=oozie-hadoop-auth-hadoop-2-4.3.1.3.1.4.0-315.jar -DgroupId=org.apache.oozie -Dartifactid=oozie-hadoop-auth -Dpacakging=jar -Dversion=hadoop-2-4.3.1.3.1.4.0-315 
 
 
-## Livy
+## [Livy](https://github.com/jsanc525/livy-release)
 - original commit: 2335c8393374da7af488fa322b12031e98b6633f
-- fixed commit: de8cb7b48f02bdfc4ae1ab02186826186c7c6597
+- updated commit: de8cb7b48f02bdfc4ae1ab02186826186c7c6597
 
 #### Notes
 - update pom.xml:
@@ -314,13 +314,13 @@ last_update: 11-01-24
 #### Build
 - mvn clean install -DskipTests
 
-## Knox
+## [Knox](https://github.com/jsanc525/knox-release)
 - original commit: c38350f3d9080c5b77baa8a9c43d6095b72954d8
 
 #### Build
 - mvn clean install -DskipTests
 
-## Atlas
+## [Atlas](https://github.com/jsanc525/atlas-release)
 - original commmit: 171256bea28203b03d2ae5fce0b6c580d9cb27c8
 
 #### Notes
@@ -329,9 +329,9 @@ last_update: 11-01-24
 #### Build 
 - mvn clean install -DskipTests
 
-## Ranger
+## [Ranger](https://github.com/jsanc525/ranger-release)
 - original commit: 048021743aa06e4214d79c79fde896c4139b3105
-- fixed commit: 9ee3ade7282070b82566d12f63904a877e396f8a
+- updated commit: 9ee3ade7282070b82566d12f63904a877e396f8a
 
 #### Notes
 - add the following dependency to agents-audit/pom.xml:
@@ -360,3 +360,5 @@ last_update: 11-01-24
 ```
 #### Build
 - mvn clean compile package install -DskipTests assembly:assembly
+
+- [**sqoop-release**](https://github.com/jsanc525/sqoop-release)
