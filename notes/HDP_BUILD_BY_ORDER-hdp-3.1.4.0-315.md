@@ -321,3 +321,33 @@ last_update: 08-01-24
 - mvn clean install -DskipTests
 
 ## Ranger
+- original commit: 048021743aa06e4214d79c79fde896c4139b3105
+- fixed commit:
+
+### Notes
+- add the following dependency to agents-audit/pom.xml:
+```     
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>2.0.0.3.1.4.0-315</version>
+        </dependency>
+```
+- add the following dependencies to plugins-kafka/pom.xml:
+```
+    <dependency>
+        <groupId>org.apache.kafka</groupId>
+        <artifactId>zkclient</artifactId>
+        <version>0.10</version>
+    </dependency>  
+```
+```
+    <dependency>
+        <groupId>org.scala-lang</groupId>
+        <artifactId>scala-library</artifactId>
+        <version>2.11.12</version>
+    </dependency>
+```
+
+### Build
+-
