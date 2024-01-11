@@ -315,5 +315,9 @@ last_update: 08-01-24
 - mvn clean install -DskipTests
 
 ## Knox
+- original commit: c38350f3d9080c5b77baa8a9c43d6095b72954d8
+
+### Build
+- mvn clean install -DskipTests
 
 ## Ranger
