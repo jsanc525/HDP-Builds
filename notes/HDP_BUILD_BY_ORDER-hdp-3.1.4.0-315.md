@@ -272,3 +272,48 @@ last_update: 08-01-24
 
 ### Build
 - build: mvn clean install -Pdist -DskipTests -Denforcer.skip=true
+
+## Oozie
+- original commit: dac9f582547700dd4376b66d98991f3046825e16
+
+### Notes
+- use pierre builder
+- update http in pom.xml:
+    - line 159 old: <url>http://repo1.maven.org/maven2</url>
+    - line 159 new: <url>https://repo1.maven.org/maven2</url>
+- requires org.apache.oozie:oozie-hadoop-auth:jar:hadoop-2-4.3.1.3.1.4.0-315. currently using prebuilt version
+
+### Install
+- **oozie-hadoop-auth** : mvn install:install-file -Dfile=oozie-hadoop-auth-hadoop-2-4.3.1.3.1.4.0-315.jar -DgroupId=org.apache.oozie -Dartifactid=oozie-hadoop-auth -Dpacakging=jar -Dversion=hadoop-2-4.3.1.3.1.4.0-315 
+
+
+## Livy
+- original commit: 2335c8393374da7af488fa322b12031e98b6633f
+- fixed commit: de8cb7b48f02bdfc4ae1ab02186826186c7c6597
+
+### Notes
+- update pom.xml:
+    - replace line 115: https://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
+- The following need to be present in the build environment:
+    - R==3.x
+    - for pip2:
+        - pytest 
+        - cloudpickle==0.2.1 
+        - configparser==3.5.0 
+        - future==0.15.2 
+        - futures==3.0.5 
+        - requests==2.10.0 
+        - responses==0.5.1 
+        - requests-kerberos==0.11.0 
+        - flake8==3.7.9 
+        - flaky==3.7.0 
+- validate Python-API requests !!! IGNORED !!! for now
+- [pytest-runner removed](https://pypi.org/project/pytest-runner/)
+
+
+### Build
+- mvn clean install -DskipTests
+
+## Knox
+
+## Ranger
