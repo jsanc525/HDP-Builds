@@ -21,10 +21,6 @@ last_update: 11-01-24
 - original commit: 06cac3e3e20e698d651ac460c80fef7f75603b89
 - updated commit: 2da4bf051a2207cca943c767ba7258ec6264b4b5
 
-#### Install
-- mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar
-- mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}-test.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar -Dclassifier=tests
-
 #### Notes
 - uses pierre builder
 - multipld hdp tags are grouped together for this build of zookeeper. The same version of zookeeper will work with both hadoop builds needed below
@@ -33,10 +29,17 @@ last_update: 11-01-24
    - line 114 new: value="https://repo1.maven.org/maven2/org/apache/ivy/ivy" />
    - line 122 old: <property name="mvnrepo" value="http://repo2.maven.org/maven2"/>
    - line 122 new: <property name="mvnrepo" value="https://repo1.maven.org/maven2"/>
-
 - update ivysettings.xml:
    - line 21 old: value="http://repo1.maven.org/maven2/" override="false"/>
    - line 21 new: value="https://repo1.maven.org/maven2/" override="false"/>
+
+#### Install
+- mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar
+- mvn install:install-file -Dfile=zookeeper-{zkversion}.{hdpversion}-test.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion={zkversion}.{hdpversion} -Dpackaging=jar -Dclassifier=tests
+
+### Build
+- ant deb
+
 
 ## [Bigdata-interop](https://github.com/jsanc525/bigdata-interop-release)
 
