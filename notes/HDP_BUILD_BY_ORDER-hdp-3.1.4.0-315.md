@@ -100,6 +100,8 @@ last_update: 11-01-24
     - [Usage instructions](https://sdkman.io/usage#use)
     - [Stack-overflow](https://stackoverflow.com/questions/47884051/install-specific-version-of-gradle) with special attention the following instruction
     >1 Great answer! I would add that the gradle binary is added to $HOME/.sdkman/candidates/gradle/[version]/bin. Add this to your PATH environment variable, source the file and you're good to go. – anegru
+    - echo 'export PATH="$HOME/.sdkman/candidates/gradle/[version]/bin:$PATH"' >> ~/.bashrc
+    - source ~/.bashrc
 
 #### Build
 - See README in repo for multiple steps

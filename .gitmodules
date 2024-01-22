@@ -1,0 +1,63 @@
+[submodule "hadoop"]
+	path = hadoop
+	url = git@github.com:jsanc525/hadoop-release.git
+[submodule "zookeeper"]
+	path = zookeeper
+	url = git@github.com:jsanc525/zookeeper-release.git
+[submodule "bigdata-interop"]
+	path = bigdata-interop
+	url = git@github.com:jsanc525/bigdata-interop-release.git
+[submodule "tez"]
+	path = tez
+	url = git@github.com:jsanc525/tez-release.git
+[submodule "kafka"]
+	path = kafka
+	url = git@github.com:jsanc525/kafka-release.git
+[submodule "arrow"]
+	path = arrow
+	url = git@github.com:jsanc525/arrow-release.git
+[submodule "spark-2"]
+	path = spark-2
+	url = git@github.com:jsanc525/spark2-release.git
+[submodule "orc"]
+	path = orc
+	url = git@github.com:jsanc525/orc-release.git
+[submodule "pig"]
+	path = pig
+	url = git@github.com:jsanc525/pig-release.git
+[submodule "parquet-mr"]
+	path = parquet-mr
+	url = git@github.com:jsanc525/parquet-mr-release.git
+[submodule "hbase"]
+	path = hbase
+	url = git@github.com:jsanc525/hbase-release.git
+[submodule "calcite_avatica"]
+	path = calcite_avatica
+	url = git@github.com:jsanc525/calcite_avatica-release.git
+[submodule "calcite"]
+	path = calcite
+	url = git@github.com:jsanc525/calcite-release.git
+[submodule "accumulo"]
+	path = accumulo
+	url = git@github.com:jsanc525/accumulo-release.git
+[submodule "druid"]
+	path = druid
+	url = git@github.com:jsanc525/druid-release.git
+[submodule "hive"]
+	path = hive
+	url = git@github.com:jsanc525/hive-release.git
+[submodule "oozie"]
+	path = oozie
+	url = git@github.com:jsanc525/oozie-release.git
+[submodule "livy"]
+	path = livy
+	url = git@github.com:jsanc525/livy-release.git
+[submodule "knox"]
+	path = knox
+	url = git@github.com:jsanc525/knox-release.git
+[submodule "atlas"]
+	path = atlas
+	url = git@github.com:jsanc525/atlas-release.git
+[submodule "ranger"]
+	path = ranger
+	url = git@github.com:jsanc525/ranger-release.git
