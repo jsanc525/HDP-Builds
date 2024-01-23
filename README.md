@@ -28,6 +28,3 @@
 - [atlas-release](https://github.com/jsanc525/atlas-release)
 - [ranger-release](https://github.com/jsanc525/ranger-release)
 - [sqoop-release](https://github.com/jsanc525/sqoop-release)
-
-## HDF
-- [nifi-release](https://github.com/jsanc525/nifi-release)

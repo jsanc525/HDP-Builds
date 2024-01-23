@@ -31,21 +31,6 @@
 [submodule "hdp-components/zookeeper"]
 	path = hdp-components/zookeeper
 	url = git@github.com:jsanc525/zookeeper-release.git
-[submodule "hdf-components/nifi"]
-	path = hdf-components/nifi
-	url = git@github.com:jsanc525/nifi-release.git
-[submodule "hdf-components/kafka"]
-	path = hdf-components/kafka
-	url = git@github.com:jsanc525/kafka-release.git
-[submodule "hdf-components/ranger"]
-	path = hdf-components/ranger
-	url = git@github.com:jsanc525/ranger-release.git
-[submodule "hdf-components/zookeeper"]
-	path = hdf-components/zookeeper
-	url = git@github.com:jsanc525/zookeeper-release.git
-[submodule "hdf-components/knox"]
-	path = hdf-components/knox
-	url = git@github.com:jsanc525/knox-release.git
 [submodule "hdp-components/hdp-prereqs/bigdata-interop"]
 	path = hdp-components/hdp-prereqs/bigdata-interop
 	url = git@github.com:jsanc525/bigdata-interop-release.git
