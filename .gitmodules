@@ -31,3 +31,51 @@
 [submodule "hdp-components/zookeeper"]
 	path = hdp-components/zookeeper
 	url = git@github.com:jsanc525/zookeeper-release.git
+[submodule "hdf-components/nifi"]
+	path = hdf-components/nifi
+	url = git@github.com:jsanc525/nifi-release.git
+[submodule "hdf-components/kafka"]
+	path = hdf-components/kafka
+	url = git@github.com:jsanc525/kafka-release.git
+[submodule "hdf-components/ranger"]
+	path = hdf-components/ranger
+	url = git@github.com:jsanc525/ranger-release.git
+[submodule "hdf-components/zookeeper"]
+	path = hdf-components/zookeeper
+	url = git@github.com:jsanc525/zookeeper-release.git
+[submodule "hdf-components/knox"]
+	path = hdf-components/knox
+	url = git@github.com:jsanc525/knox-release.git
+[submodule "hdp-components/hdp-prereqs/bigdata-interop"]
+	path = hdp-components/hdp-prereqs/bigdata-interop
+	url = git@github.com:jsanc525/bigdata-interop-release.git
+[submodule "hdp-components/hdp-prereqs/arrow"]
+	path = hdp-components/hdp-prereqs/arrow
+	url = git@github.com:jsanc525/arrow-release.git
+[submodule "hdp-components/hdp-prereqs/orc"]
+	path = hdp-components/hdp-prereqs/orc
+	url = git@github.com:jsanc525/orc-release.git
+[submodule "hdp-components/hdp-prereqs/pig"]
+	path = hdp-components/hdp-prereqs/pig
+	url = git@github.com:jsanc525/pig-release.git
+[submodule "hdp-components/hdp-prereqs/parquet-mr"]
+	path = hdp-components/hdp-prereqs/parquet-mr
+	url = git@github.com:jsanc525/parquet-mr-release.git
+[submodule "hdp-components/hdp-prereqs/calcite"]
+	path = hdp-components/hdp-prereqs/calcite
+	url = git@github.com:jsanc525/calcite-release.git
+[submodule "hdp-components/hdp-prereqs/calcite_avatica"]
+	path = hdp-components/hdp-prereqs/calcite_avatica
+	url = git@github.com:jsanc525/calcite_avatica-release.git
+[submodule "hdp-components/hdp-prereqs/accumulo"]
+	path = hdp-components/hdp-prereqs/accumulo
+	url = git@github.com:jsanc525/accumulo-release.git
+[submodule "hdp-components/hdp-prereqs/druid"]
+	path = hdp-components/hdp-prereqs/druid
+	url = git@github.com:jsanc525/druid-release.git
+[submodule "hdp-components/hdp-prereqs/atlas"]
+	path = hdp-components/hdp-prereqs/atlas
+	url = git@github.com:jsanc525/atlas-release.git
+[submodule "hdp-components/hdp-prereqs/sqoop"]
+	path = hdp-components/hdp-prereqs/sqoop
+	url = git@github.com:jsanc525/sqoop-release.git
