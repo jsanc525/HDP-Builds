@@ -1,23 +1,23 @@
 [submodule "hadoop"]
-	path = hadoop
+	path = hdp-components/hadoop
 	url = git@github.com:jsanc525/hadoop-release.git
 [submodule "zookeeper"]
-	path = zookeeper
+	path = hdp-components/zookeeper
 	url = git@github.com:jsanc525/zookeeper-release.git
 [submodule "bigdata-interop"]
 	path = bigdata-interop
 	url = git@github.com:jsanc525/bigdata-interop-release.git
 [submodule "tez"]
-	path = tez
+	path = hdp-components/tez
 	url = git@github.com:jsanc525/tez-release.git
 [submodule "kafka"]
-	path = kafka
+	path = hdp-components/kafka
 	url = git@github.com:jsanc525/kafka-release.git
 [submodule "arrow"]
 	path = arrow
 	url = git@github.com:jsanc525/arrow-release.git
 [submodule "spark-2"]
-	path = spark-2
+	path = hdp-components/spark-2
 	url = git@github.com:jsanc525/spark2-release.git
 [submodule "orc"]
 	path = orc
@@ -29,7 +29,7 @@
 	path = parquet-mr
 	url = git@github.com:jsanc525/parquet-mr-release.git
 [submodule "hbase"]
-	path = hbase
+	path = hdp-components/hbase
 	url = git@github.com:jsanc525/hbase-release.git
 [submodule "calcite_avatica"]
 	path = calcite_avatica
@@ -44,20 +44,20 @@
 	path = druid
 	url = git@github.com:jsanc525/druid-release.git
 [submodule "hive"]
-	path = hive
+	path = hdp-components/hive
 	url = git@github.com:jsanc525/hive-release.git
 [submodule "oozie"]
-	path = oozie
+	path = hdp-components/oozie
 	url = git@github.com:jsanc525/oozie-release.git
 [submodule "livy"]
-	path = livy
+	path = hdp-components/livy
 	url = git@github.com:jsanc525/livy-release.git
 [submodule "knox"]
-	path = knox
+	path = hdp-components/knox
 	url = git@github.com:jsanc525/knox-release.git
 [submodule "atlas"]
 	path = atlas
 	url = git@github.com:jsanc525/atlas-release.git
 [submodule "ranger"]
-	path = ranger
+	path = hdp-components/ranger
 	url = git@github.com:jsanc525/ranger-release.git
