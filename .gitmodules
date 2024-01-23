@@ -1,0 +1,33 @@
+[submodule "hdp-components/hadoop"]
+	path = hdp-components/hadoop
+	url = git@github.com:jsanc525/hadoop-release.git
+[submodule "hdp-components/hbase"]
+	path = hdp-components/hbase
+	url = git@github.com:jsanc525/hbase-release.git
+[submodule "hdp-components/hive"]
+	path = hdp-components/hive
+	url = git@github.com:jsanc525/hive-release.git
+[submodule "hdp-components/kafka"]
+	path = hdp-components/kafka
+	url = git@github.com:jsanc525/kafka-release.git
+[submodule "hdp-components/knox"]
+	path = hdp-components/knox
+	url = git@github.com:jsanc525/knox-release.git
+[submodule "hdp-components/livy"]
+	path = hdp-components/livy
+	url = git@github.com:jsanc525/livy-release.git
+[submodule "hdp-components/oozie"]
+	path = hdp-components/oozie
+	url = git@github.com:jsanc525/oozie-release.git
+[submodule "hdp-components/ranger"]
+	path = hdp-components/ranger
+	url = git@github.com:jsanc525/ranger-release.git
+[submodule "hdp-components/spark-2"]
+	path = hdp-components/spark-2
+	url = git@github.com:jsanc525/spark2-release.git
+[submodule "hdp-components/tez"]
+	path = hdp-components/tez
+	url = git@github.com:jsanc525/tez-release.git
+[submodule "hdp-components/zookeeper"]
+	path = hdp-components/zookeeper
+	url = git@github.com:jsanc525/zookeeper-release.git
